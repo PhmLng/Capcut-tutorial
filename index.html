@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Học CapCut từng bước</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="home">
+    <main class="wrap">
+        <h1>Học CapCut từng bước</h1>
+        <p class="lead">Học từ đầu đến cuối, hoặc chọn thẳng phần bạn cần. Bấm vào màn hình để xem bước tiếp theo.</p>
+        <nav id="list" aria-label="Danh sách bài hướng dẫn"></nav>
+    </main>
+    <script src="js/data.js"></script>
+    <script>
+        document.getElementById("list").innerHTML = LESSONS.map(function (l) {
+            var total = 0;
+            l.parts.forEach(function (p) { p.subs.forEach(function (sb) { total += sb.steps.length; }); });
+            var links = l.parts.map(function (p, pi) {
+                var si = p.subs.findIndex(function (sb) { return sb.steps.length > 0; });
+                var label = '<span class="n">' + (pi + 1) + '</span><span>' + p.title + '</span>';
+                return si >= 0
+                    ? '<li><a href="bai.html?b=' + l.id + '#' + (pi + 1) + '-' + (si + 1) + '-1">' + label + '</a></li>'
+                    : '<li><span class="soon">' + label + '<em>Sắp có</em></span></li>';
+            }).join("");
+            return '<a class="lesson" href="bai.html?b=' + l.id + '">' +
+                '<img src="' + l.cover + '" alt="" loading="lazy">' +
+                '<span class="info"><strong>' + l.title + '</strong><span>' + l.desc + '</span><em>' + l.parts.length + ' phần · ' + total + ' bước</em></span></a>' +
+                '<h2 class="h2">Hoặc học riêng từng phần</h2><ol class="part-links">' + links + '</ol>';
+        }).join("");
+    </script>
+</body>
+
+</html>

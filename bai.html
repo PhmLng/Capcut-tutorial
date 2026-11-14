@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hướng dẫn CapCut</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="back" href="index.html">Về danh sách bài</a>
+        <h1 id="title"></h1>
+    </header>
+
+    <main class="layout">
+        <details id="toc" class="toc">
+            <summary>Mục lục</summary>
+            <div id="tocList"></div>
+        </details>
+
+        <div class="phone">
+            <div id="stage" class="stage" role="button" tabindex="0"
+                aria-label="Bấm vào màn hình để sang bước tiếp theo">
+                <img id="shot" alt="">
+                <div id="noimg" class="noimg"></div>
+                <div id="spot" class="spot"></div>
+                <div id="arrow" class="arrow" aria-hidden="true">
+                    <svg viewBox="0 0 48 64" width="52" height="70">
+                        <path d="M24 4 L44 28 H30 V60 H18 V28 H4 Z" fill="#FFC21A" stroke="#0E2B33" stroke-width="3"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div id="tip" class="tip" aria-hidden="true"><strong id="tipTitle"></strong><span id="tipText"></span>
+                </div>
+            </div>
+        </div>
+
+        <section id="caption" class="caption" aria-live="polite">
+            <p id="counter" class="counter"></p>
+            <div class="bar"><i id="barFill"></i></div>
+            <h2 id="stepTitle" class="step-title"></h2>
+            <p id="text" class="text"></p>
+            <div class="actions">
+                <button id="prev" class="btn ghost" type="button">Quay lại</button>
+                <button id="next" class="btn" type="button">Tiếp tục</button>
+            </div>
+        </section>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/tutorial.js"></script>
+</body>
+
+</html>
